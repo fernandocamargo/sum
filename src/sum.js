@@ -7,11 +7,9 @@ const add = (...numbers) => numbers.filter(Number).reduce(accumulate, 0);
 
 const load = file => fs.existsSync(file) && fs.readFileSync(file, 'utf8');
 
-const dig = file => sum(file);
-
 const parse = file => (stack, line) => {
   const nested = path.join(path.dirname(file), line);
-  const deep = fs.existsSync(nested) && dig(nested);
+  const deep = fs.existsSync(nested) && sum(nested);
 
   return Object.assign(stack, deep, {
     [file]: add(stack[file], line, deep[nested]),
