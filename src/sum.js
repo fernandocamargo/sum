@@ -21,7 +21,7 @@ const sum = source => {
 
   return String(load(file))
     .trim()
-    .replace('\r', 'gi')
+    .replace(/\r/gi, '')
     .split('\n')
     .reduce(parse(file), { [file]: 0 });
 };
