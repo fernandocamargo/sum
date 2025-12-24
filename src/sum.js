@@ -5,7 +5,7 @@ const accumulate = (previous, next) => Number(previous) + Number(next);
 
 const add = (...numbers) => numbers.filter(Number).reduce(accumulate, 0);
 
-const load = file => fs.existsSync(file) && fs.readFileSync(file, 'utf8');
+const load = file => fs.existsSync(file) && fs.statSync(file).isFile() && fs.readFileSync(file, 'utf8');
 
 const parse = file => (stack, line) => {
   const nested = path.join(path.dirname(file), line);

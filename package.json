@@ -5,11 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node ./index.js",
+    "test": "tape tests/**/*.js"
   },
   "author": "Fernando Camargo <camargodelbuono@gmail.com> (http://fernandocamargo.com)",
   "license": "MIT",
   "dependencies": {
     "nodemon": "^1.17.1"
+  },
+  "devDependencies": {
+    "tape": "^4.9.0"
   }
 }
